@@ -9,5 +9,7 @@ jobs:
     steps:
       - name: Run upptime
         uses: upptime/uptime-monitor@v1.39.0
+        env:
+          GH_PAT: ${{ secrets.GITHUB_TOKEN }}
         with:
           command: "update"

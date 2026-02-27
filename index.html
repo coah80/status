@@ -1,18 +1,448 @@
-<!DOCTYPE html> <html lang=en> <head> <meta charset=utf-8> <meta content="width=device-width,initial-scale=1" name=viewport> <meta content=#333333 name=theme-color> <base href=/ > <link href=manifest.json rel=manifest crossorigin=use-credentials> <script>__SAPPER__={baseUrl:"",preloaded:[void 0,{}]};if('serviceWorker' in navigator)navigator.serviceWorker.register('/service-worker.js');(function(){try{eval("async function x(){}");var main="/client/client.4f1c168c.js"}catch(e){main="/client/legacy/client.78da0431.js"};var s=document.createElement("script");try{new Function("if(0)import('')")();s.src=main;s.type="module";s.crossOrigin="use-credentials";}catch(e){s.src="/client/shimport@2.0.5.js";s.setAttribute("data-main",main);}document.head.appendChild(s);}());</script> <link href=client/client-31a52aa5.css rel=stylesheet><link href=client/createOctokit-a85f76c7.css rel=stylesheet><link href=client/index-b0b6455a.css rel=stylesheet> <title>yoink status</title><link href=https://status.yoink.tools/themes/dark.css rel=stylesheet><link href=https://status.yoink.tools/global.css rel=stylesheet><link href=https://raw.githubusercontent.com/upptime/upptime/master/assets/upptime-icon.svg rel=icon type=image/svg><link href=/logo-192.png rel=icon type=image/png> <link href=/client/client.4f1c168c.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/client-31a52aa5.css rel=preload as=style><link href=/client/index.73c52f40.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/createOctokit.0fbaefb1.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/inject_styles.803b7e80.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/createOctokit-a85f76c7.css rel=preload as=style><link href=/client/index-b0b6455a.css rel=preload as=style></head> <body> <div id=sapper> <nav class=svelte-a08hsz><div class="svelte-a08hsz container"><div><a href=https://status.yoink.tools class="svelte-a08hsz logo"><img alt="" class=svelte-a08hsz src=https://yoink.tools/icons/icon-192.png> <div>yoink status</div></a></div> <ul class=svelte-a08hsz><li><a href=https://yoink.tools class=svelte-a08hsz target=_self>yoink.tools</a> <li><a href=https://github.com/coah80/status class=svelte-a08hsz target=_self>GitHub</a> </li> </ul></div> </nav> <main class=container> <header class=svelte-ngkazm> </header> <section class=svelte-8lnl4f><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <section class=svelte-8lnl4f><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <div class="svelte-fqsq6s f changed"><h2>Live status</h2> <form class="svelte-fqsq6s f r"><div><input class=svelte-fqsq6s id=data_day name=d type=radio value=day><label class=svelte-fqsq6s for=data_day>24h</label></div> <div><input class=svelte-fqsq6s id=data_week name=d type=radio value=week checked><label class=svelte-fqsq6s for=data_week>7d</label></div> <div><input class=svelte-fqsq6s id=data_month name=d type=radio value=month><label class=svelte-fqsq6s for=data_month>30d</label></div> <div><input class=svelte-fqsq6s id=data_year name=d type=radio value=year><label class=svelte-fqsq6s for=data_year>1y</label></div> <div><input class=svelte-fqsq6s id=data_all name=d type=radio value=all><label class=svelte-fqsq6s for=data_all>all</label></div></form></div> <section class="svelte-fqsq6s live-status"><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <section><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <section><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div></section></main> <footer class=svelte-jbr799><p>This page is <a href=https://github.com/coah80/status>open source</a>, powered by <a href=https://upptime.js.org>Upptime</a></p> </footer></div> <script> try {
-        if (typeof window !== "undefined" && window.navigator && navigator.serviceWorker) {
-          navigator.serviceWorker.getRegistrations().then(function (registrations) {
-            for (let registration of registrations) {
-              registration.unregister();
-            }
-          });
-        }
-        if (typeof window !== "undefined" && "caches" in window) {
-          caches.keys().then(function (keyList) {
-            return Promise.all(
-              keyList.map(function (key) {
-                return caches.delete(key);
-              })
-            );
-          });
-        }
-      } catch (error) {} </script> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yoink status</title>
+  <meta name="description" content="Real-time status and uptime monitoring for yoink.tools">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://yoink.tools/icons/icon-192.png">
+  <meta name="theme-color" content="#8b5cf6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', -apple-system, sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .header img {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+
+    .header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .header a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .header a:hover { color: #fff; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .status-banner {
+      margin: -20px auto 0;
+      max-width: 720px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .status-banner.up {
+      background: #166534;
+      color: #bbf7d0;
+    }
+
+    .status-banner.down {
+      background: #991b1b;
+      color: #fecaca;
+    }
+
+    .status-banner.partial {
+      background: #92400e;
+      color: #fde68a;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 40px 0 16px;
+    }
+
+    .monitor {
+      background: #111118;
+      border: 1px solid #1e1e2a;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+
+    .monitor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .monitor-name {
+      font-weight: 600;
+      font-size: 15px;
+      color: #f0f0f0;
+    }
+
+    .monitor-status {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .monitor-status.up { color: #4ade80; }
+    .monitor-status.down { color: #f87171; }
+
+    .uptime-bars {
+      display: flex;
+      gap: 2px;
+      height: 32px;
+      margin-bottom: 8px;
+    }
+
+    .uptime-bar {
+      flex: 1;
+      border-radius: 3px;
+      min-width: 2px;
+      position: relative;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .uptime-bar:hover { opacity: 0.8; }
+
+    .uptime-bar.up { background: #22c55e; }
+    .uptime-bar.down { background: #ef4444; }
+    .uptime-bar.partial { background: #f59e0b; }
+    .uptime-bar.no-data { background: #1e1e2a; }
+
+    .uptime-bar .tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a24;
+      border: 1px solid #2a2a3a;
+      color: #e0e0e0;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .uptime-bar:hover .tooltip { display: block; }
+
+    .uptime-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .metrics {
+      background: #111118;
+      border: 1px solid #1e1e2a;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #1a1a24;
+    }
+
+    .metric-row:last-child { border-bottom: none; }
+
+    .metric-label {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .metric-value {
+      font-weight: 600;
+      font-size: 14px;
+      color: #f0f0f0;
+    }
+
+    .incidents {
+      margin-bottom: 60px;
+    }
+
+    .incident-day {
+      border-bottom: 1px solid #1a1a24;
+      padding: 16px 0;
+    }
+
+    .incident-date {
+      font-weight: 600;
+      font-size: 14px;
+      color: #e0e0e0;
+      margin-bottom: 4px;
+    }
+
+    .incident-none {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .incident-event {
+      font-size: 13px;
+      color: #f87171;
+      margin-top: 4px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 32px 24px 48px;
+      font-size: 13px;
+      color: #555;
+      border-top: 1px solid #1a1a24;
+    }
+
+    .footer a {
+      color: #8b5cf6;
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    .loading {
+      text-align: center;
+      padding: 60px 0;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 36px 20px 32px; }
+      .header h1 { font-size: 22px; }
+      .monitor { padding: 16px 18px; }
+      .uptime-bars { height: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <a href="https://yoink.tools">
+    <img src="https://yoink.tools/icons/icon-192.png" alt="yoink">
+  </a>
+  <h1>yoink status</h1>
+  <a href="https://yoink.tools">yoink.tools</a>
+</div>
+
+<div class="container">
+  <div class="status-banner up" id="banner">
+    Checking systems...
+  </div>
+
+  <div class="section-title">Uptime over the past 90 days</div>
+  <div id="monitors"><div class="loading">Loading status...</div></div>
+
+  <div class="section-title">System Metrics</div>
+  <div class="metrics" id="metrics"><div class="loading">Loading...</div></div>
+
+  <div class="section-title">Past Incidents</div>
+  <div class="incidents" id="incidents"><div class="loading">Loading...</div></div>
+</div>
+
+<div class="footer">
+  Powered by <a href="https://github.com/upptime/upptime">Upptime</a>
+  &middot;
+  <a href="https://github.com/coah80/status">Source</a>
+</div>
+
+<script>
+const REPO = 'coah80/status';
+const API_BASE = `https://raw.githubusercontent.com/${REPO}/main`;
+
+async function fetchJSON(path) {
+  const res = await fetch(`${API_BASE}/${path}`);
+  if (!res.ok) throw new Error(`Failed to fetch ${path}`);
+  return res.json();
+}
+
+async function fetchYAML(path) {
+  const res = await fetch(`${API_BASE}/${path}`);
+  if (!res.ok) throw new Error(`Failed to fetch ${path}`);
+  const text = await res.text();
+  const obj = {};
+  text.split('\n').forEach(line => {
+    const m = line.match(/^(\w+):\s*(.+)$/);
+    if (m) obj[m[1]] = m[2];
+  });
+  return obj;
+}
+
+function generateUptimeBars(dailyMinutesDown) {
+  const bars = [];
+  const today = new Date();
+  for (let i = 89; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const key = d.toISOString().split('T')[0];
+    const down = dailyMinutesDown[key] || 0;
+    const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+    let status, label;
+    if (down === 0) {
+      status = 'up';
+      label = `${dateStr} — No downtime`;
+    } else if (down >= 1440) {
+      status = 'down';
+      label = `${dateStr} — Down all day`;
+    } else if (down > 0) {
+      status = 'partial';
+      label = `${dateStr} — ${down} min downtime`;
+    }
+
+    // If date is before monitoring started, show as no-data
+    const startDate = new Date('2026-02-27');
+    if (d < startDate) {
+      status = 'no-data';
+      label = `${dateStr} — No data`;
+    }
+
+    bars.push(`<div class="uptime-bar ${status}"><div class="tooltip">${label}</div></div>`);
+  }
+  return bars.join('');
+}
+
+async function loadStatus() {
+  try {
+    const summary = await fetchJSON('history/summary.json');
+
+    // Banner
+    const banner = document.getElementById('banner');
+    const allUp = summary.every(s => s.status === 'up');
+    const allDown = summary.every(s => s.status === 'down');
+
+    if (allUp) {
+      banner.className = 'status-banner up';
+      banner.textContent = 'All Systems Operational';
+    } else if (allDown) {
+      banner.className = 'status-banner down';
+      banner.textContent = 'Major Outage';
+    } else {
+      banner.className = 'status-banner partial';
+      banner.textContent = 'Partial System Outage';
+    }
+
+    // Monitors
+    const monitorsEl = document.getElementById('monitors');
+    monitorsEl.innerHTML = summary.map(s => `
+      <div class="monitor">
+        <div class="monitor-header">
+          <span class="monitor-name">${s.name}</span>
+          <span class="monitor-status ${s.status}">${s.status === 'up' ? 'Operational' : 'Down'}</span>
+        </div>
+        <div class="uptime-bars">${generateUptimeBars(s.dailyMinutesDown || {})}</div>
+        <div class="uptime-meta">
+          <span>90 days ago</span>
+          <span>${s.uptimeMonth} uptime</span>
+          <span>Today</span>
+        </div>
+      </div>
+    `).join('');
+
+    // Metrics
+    const metricsEl = document.getElementById('metrics');
+    metricsEl.innerHTML = summary.map(s => `
+      <div class="metric-row">
+        <span class="metric-label">${s.name}</span>
+        <span class="metric-value">${s.time} ms</span>
+      </div>
+    `).join('');
+
+    // Incidents (from GitHub issues)
+    await loadIncidents();
+  } catch (err) {
+    console.error('Failed to load status:', err);
+    document.getElementById('banner').textContent = 'Failed to load status data';
+    document.getElementById('banner').className = 'status-banner down';
+  }
+}
+
+async function loadIncidents() {
+  const el = document.getElementById('incidents');
+  let incidents = [];
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/issues?state=all&labels=status&per_page=30`);
+    if (res.ok) incidents = await res.json();
+  } catch (e) {}
+
+  const days = [];
+  const today = new Date();
+  for (let i = 0; i < 14; i++) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const dateStr = d.toLocaleDateString('en-US', { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' });
+    const dayKey = d.toISOString().split('T')[0];
+
+    const dayIncidents = incidents.filter(issue => {
+      const created = issue.created_at.split('T')[0];
+      return created === dayKey;
+    });
+
+    let content;
+    if (dayIncidents.length === 0) {
+      content = '<div class="incident-none">No incidents reported.</div>';
+    } else {
+      content = dayIncidents.map(issue =>
+        `<div class="incident-event">${issue.title}</div>`
+      ).join('');
+    }
+
+    days.push(`
+      <div class="incident-day">
+        <div class="incident-date">${dateStr}</div>
+        ${content}
+      </div>
+    `);
+  }
+
+  el.innerHTML = days.join('');
+}
+
+loadStatus();
+// Refresh every 5 minutes
+setInterval(loadStatus, 5 * 60 * 1000);
+</script>
+
+</body>
+</html>

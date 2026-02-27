@@ -290,22 +290,40 @@
 const REPO = 'coah80/status';
 const API_BASE = `https://raw.githubusercontent.com/${REPO}/main`;
 
+// Endpoints to check live
+const LIVE_CHECKS = [
+  { name: 'yoink.tools', url: 'https://yoink.tools' },
+  { name: 'yoink API', url: 'https://yoink.tools/health' },
+  { name: 'yoink Discord Bot', url: 'https://yoink.tools/api/limits' },
+];
+
 async function fetchJSON(path) {
   const res = await fetch(`${API_BASE}/${path}`);
   if (!res.ok) throw new Error(`Failed to fetch ${path}`);
   return res.json();
 }
 
-async function fetchYAML(path) {
-  const res = await fetch(`${API_BASE}/${path}`);
-  if (!res.ok) throw new Error(`Failed to fetch ${path}`);
-  const text = await res.text();
-  const obj = {};
-  text.split('\n').forEach(line => {
-    const m = line.match(/^(\w+):\s*(.+)$/);
-    if (m) obj[m[1]] = m[2];
-  });
-  return obj;
+// Real-time health check for a single endpoint
+async function checkEndpoint(url) {
+  const start = performance.now();
+  try {
+    const res = await fetch(url, { mode: 'no-cors', cache: 'no-store' });
+    const ms = Math.round(performance.now() - start);
+    // no-cors returns opaque response (status 0) but if it didn't throw, the server responded
+    return { up: true, ms };
+  } catch (e) {
+    const ms = Math.round(performance.now() - start);
+    return { up: false, ms };
+  }
+}
+
+// Check all endpoints live
+async function liveCheck() {
+  const results = {};
+  await Promise.all(LIVE_CHECKS.map(async (ep) => {
+    results[ep.name] = await checkEndpoint(ep.url);
+  }));
+  return results;
 }
 
 function generateUptimeBars(dailyMinutesDown) {
@@ -344,12 +362,16 @@ function generateUptimeBars(dailyMinutesDown) {
 
 async function loadStatus() {
   try {
-    const summary = await fetchJSON('history/summary.json');
+    // Fetch historical data and do live checks in parallel
+    const [summary, live] = await Promise.all([
+      fetchJSON('history/summary.json'),
+      liveCheck()
+    ]);
 
-    // Banner
+    // Use live check results for current status, historical data for uptime bars
     const banner = document.getElementById('banner');
-    const allUp = summary.every(s => s.status === 'up');
-    const allDown = summary.every(s => s.status === 'down');
+    const allUp = Object.values(live).every(r => r.up);
+    const allDown = Object.values(live).every(r => !r.up);
 
     if (allUp) {
       banner.className = 'status-banner up';
@@ -362,38 +384,60 @@ async function loadStatus() {
       banner.textContent = 'Partial System Outage';
     }
 
-    // Monitors
+    // Monitors - use live status for current state, historical for bars
     const monitorsEl = document.getElementById('monitors');
-    monitorsEl.innerHTML = summary.map(s => `
-      <div class="monitor">
-        <div class="monitor-header">
-          <span class="monitor-name">${s.name}</span>
-          <span class="monitor-status ${s.status}">${s.status === 'up' ? 'Operational' : 'Down'}</span>
-        </div>
-        <div class="uptime-bars">${generateUptimeBars(s.dailyMinutesDown || {})}</div>
-        <div class="uptime-meta">
-          <span>90 days ago</span>
-          <span>${s.uptimeMonth} uptime</span>
-          <span>Today</span>
-        </div>
-      </div>
-    `).join('');
+    monitorsEl.innerHTML = summary.map(s => {
+      const liveResult = live[s.name];
+      const isUp = liveResult ? liveResult.up : s.status === 'up';
+      const statusClass = isUp ? 'up' : 'down';
+      const statusText = isUp ? 'Operational' : 'Down';
 
-    // Metrics
+      return `
+        <div class="monitor">
+          <div class="monitor-header">
+            <span class="monitor-name">${s.name}</span>
+            <span class="monitor-status ${statusClass}">${statusText}</span>
+          </div>
+          <div class="uptime-bars">${generateUptimeBars(s.dailyMinutesDown || {})}</div>
+          <div class="uptime-meta">
+            <span>90 days ago</span>
+            <span>${s.uptimeMonth} uptime</span>
+            <span>Today</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Metrics - use live response times when available
     const metricsEl = document.getElementById('metrics');
-    metricsEl.innerHTML = summary.map(s => `
-      <div class="metric-row">
-        <span class="metric-label">${s.name}</span>
-        <span class="metric-value">${s.time} ms</span>
-      </div>
-    `).join('');
+    metricsEl.innerHTML = summary.map(s => {
+      const liveResult = live[s.name];
+      const ms = liveResult ? liveResult.ms : s.time;
+      const label = liveResult && !liveResult.up ? 'Unreachable' : `${ms} ms`;
+      const valueClass = liveResult && !liveResult.up ? 'style="color: #f87171"' : '';
 
-    // Incidents (from GitHub issues)
+      return `
+        <div class="metric-row">
+          <span class="metric-label">${s.name}</span>
+          <span class="metric-value" ${valueClass}>${label}</span>
+        </div>
+      `;
+    }).join('');
+
     await loadIncidents();
   } catch (err) {
     console.error('Failed to load status:', err);
-    document.getElementById('banner').textContent = 'Failed to load status data';
-    document.getElementById('banner').className = 'status-banner down';
+    // If historical data fails, try live check alone
+    try {
+      const live = await liveCheck();
+      const banner = document.getElementById('banner');
+      const allUp = Object.values(live).every(r => r.up);
+      banner.className = allUp ? 'status-banner up' : 'status-banner down';
+      banner.textContent = allUp ? 'All Systems Operational' : 'Systems Experiencing Issues';
+    } catch (e) {
+      document.getElementById('banner').textContent = 'Failed to load status data';
+      document.getElementById('banner').className = 'status-banner down';
+    }
   }
 }
 
@@ -440,8 +484,8 @@ async function loadIncidents() {
 }
 
 loadStatus();
-// Refresh every 5 minutes
-setInterval(loadStatus, 5 * 60 * 1000);
+// Refresh every 30 seconds for real-time feel
+setInterval(loadStatus, 30 * 1000);
 </script>
 
 </body>

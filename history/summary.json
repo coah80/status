@@ -4,53 +4,59 @@
     "url": "https://yoink.tools",
     "icon": "https://yoink.tools/icons/icon-192.png",
     "slug": "yoink-tools",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 321,
-    "timeDay": 271,
-    "timeWeek": 321,
-    "timeMonth": 321,
-    "timeYear": 321,
-    "dailyMinutesDown": {}
+    "time": 345,
+    "timeDay": 366,
+    "timeWeek": 345,
+    "timeMonth": 345,
+    "timeYear": 345,
+    "dailyMinutesDown": {
+      "2026-03-02": 0
+    }
   },
   {
     "name": "yoink API",
     "url": "https://yoink.tools/health",
     "icon": "https://icons.duckduckgo.com/ip3/yoink.tools.ico",
     "slug": "yoink-api",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 45,
-    "timeDay": 26,
-    "timeWeek": 45,
-    "timeMonth": 45,
-    "timeYear": 45,
-    "dailyMinutesDown": {}
+    "time": 39,
+    "timeDay": 16,
+    "timeWeek": 39,
+    "timeMonth": 39,
+    "timeYear": 39,
+    "dailyMinutesDown": {
+      "2026-03-02": 0
+    }
   },
   {
     "name": "yoink Discord Bot",
     "url": "https://yoink.tools/api/limits",
     "icon": "https://icons.duckduckgo.com/ip3/yoink.tools.ico",
     "slug": "yoink-discord-bot",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 44,
-    "timeDay": 26,
-    "timeWeek": 44,
-    "timeMonth": 44,
-    "timeYear": 44,
-    "dailyMinutesDown": {}
+    "time": 38,
+    "timeDay": 16,
+    "timeWeek": 38,
+    "timeMonth": 38,
+    "timeYear": 38,
+    "dailyMinutesDown": {
+      "2026-03-02": 0
+    }
   }
 ]
